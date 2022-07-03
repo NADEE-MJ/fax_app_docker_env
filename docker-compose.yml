@@ -1,0 +1,41 @@
+# version: "0.1"
+services:
+  db:
+    image: postgres:14.4
+    container_name: postgresDB
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: dev
+      POSTGRES_USER: dev
+      POSTGRES_DB: fax_db
+    volumes:
+      - 'postgresStorage:/var/lib/postgresql/data'
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: postgresGUI
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: develop@fax.com
+      PGADMIN_DEFAULT_PASSWORD: develop
+    ports:
+      - "8080:80"
+
+  development:
+    hostname: fax_env
+    container_name: fax_env
+    restart: unless-stopped
+    tty: true
+    build:
+      context: .
+      dockerfile: fax_env.dockerfile
+    volumes:
+      - 'repoStorage:/home/dev/repos'
+    ports:
+      - "5000:80"
+
+volumes:
+  postgresStorage:
+  repoStorage:
