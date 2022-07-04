@@ -1,5 +1,5 @@
 ---
-name: ! Spike
+name: 💡 Spike
 about: Research Spike
 title: "[SPIKE]"
 labels: research
