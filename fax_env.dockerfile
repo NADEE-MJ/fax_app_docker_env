@@ -21,7 +21,7 @@ USER $USERNAME
 #!###############################################################
 RUN sudo apt-get update -y
 RUN sudo apt-get upgrade -y
-RUN sudo apt-get install sudo python3.10 python3-venv zsh fzf tig curl npm unzip -y
+RUN sudo apt-get install sudo python3.10 python3-venv zsh fzf tig curl npm unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
 
 #!###############################################################
 #!dart/flutter setup
