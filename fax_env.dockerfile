@@ -61,8 +61,8 @@ RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUS
 #!###############################################################
 RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
 RUN git clone https://github.com/fax-app/notes.git ~/repos/notes
-RUN git clone https://github.com/fax-app/fax-app.git ~/repos/app
-RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker
+RUN git clone https://github.com/fax-app/fax-app.git ~/repos/fax_app
+RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker_env
 
 #!###############################################################
 #!npm setup
