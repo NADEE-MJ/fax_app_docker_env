@@ -24,15 +24,6 @@ RUN sudo apt-get upgrade -y
 RUN sudo apt-get install sudo python3.10 python3-venv zsh fzf tig curl npm unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
 
 #!###############################################################
-#!dart/flutter setup
-#!###############################################################
-RUN mkdir ~/tools
-RUN cd ~/tools && git clone https://github.com/flutter/flutter.git -b stable
-ENV PATH="$PATH:/home/dev/tools/flutter/bin"
-RUN flutter precache
-RUN flutter config --no-analytics
-
-#!###############################################################
 #!git setup
 #!###############################################################
 RUN git config --global pull.rebase false
@@ -69,6 +60,16 @@ RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
 RUN git clone https://github.com/fax-app/notes.git ~/repos/notes
 RUN git clone https://github.com/fax-app/fax-app.git ~/repos/fax_app
 RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker_env
+
+#!###############################################################
+#!dart/flutter setup
+#!###############################################################
+RUN mkdir ~/tools
+RUN cd ~/tools && git clone https://github.com/flutter/flutter.git -b stable
+ENV PATH="$PATH:/home/dev/tools/flutter/bin"
+RUN flutter precache
+RUN flutter config --no-analytics
+RUN cd ~/repos/fax_app && flutter packages get
 
 #!###############################################################
 #!npm setup
