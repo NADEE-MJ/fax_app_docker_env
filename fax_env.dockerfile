@@ -57,6 +57,12 @@ RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 #!###############################################################
+#!Poetry setup
+#!###############################################################
+RUN curl -sSL https://install.python-poetry.org | python3 -
+ENV PATH="/home/dev/.local/bin:$PATH"
+
+#!###############################################################
 #!fax repos setup
 #!###############################################################
 RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
@@ -69,9 +75,3 @@ RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker_env
 #!###############################################################
 RUN cd ~/repos/fax_server && npm install
 RUN cd ~/repos/fax_server && npm run prep
-
-#!###############################################################
-#!Poetry setup
-#!###############################################################
-RUN curl -sSL https://install.python-poetry.org | python3 -
-ENV PATH="/home/dev/.local/bin:$PATH"
