@@ -1,21 +1,17 @@
 <h1 align="center">
   <a href="https://github.com/fax-app/docker_env">
-    <!-- Please provide path to your logo here -->
-    <img src="docs/images/fax_logo.svg" alt="Logo" width="150" height="150">
+    <img src="docs/images/logo.svg" alt="Logo" width="250" height="250">
   </a>
 </h1>
 
 <div align="center">
   <b><font size="+4">docker_env</font></b>
   <br />
-  <a href="#about"><strong>Explore the screenshots »</strong></a>
-  <br />
-  <br />
-  <a href="https://github.com/fax-app/docker_env/issues/new?assignees=&labels=bug&template=bug_report.md&title=[BUG]">Report a Bug</a>
-  ·
-  <a href="https://github.com/fax-app/docker_env/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=[FEATURE]">Request a Feature</a>
-  .
-  <a href="https://github.com/fax-app/docker_env/issues/new?assignees=&labels=question&template=support_question.md&title=[QUESTION]">Ask a Question</a>
+  <a href="https://github.com/fax-app/docker_env/issues/new?labels=bug&template=bug.md&title=[BUG]">Report a Bug</a>
+  |
+  <a href="https://github.com/fax-app/docker_env/issues/new?labels=feature&template=feature.md&title=[FEATURE]">Request a Feature</a>
+  |
+  <a href="https://github.com/fax-app/docker_env/issues/new?labels=question&template=support.md&title=[SUPPORT]">Ask a Question</a>
 </div>
 
 <div align="center">
@@ -50,48 +46,31 @@
 
 ## About
 
-> **[?]**
-> Provide general information about your project here.
-> What problem does it (intend to) solve?
-> What is the purpose of your project?
-> Why did you undertake it?
-> You don't have to answer all the questions -- just the ones relevant to your project.
-
-<details>
-<summary>Screenshots</summary>
-<br>
-
-> **[?]**
-> Please provide your screenshots here.
-
-|                               Home Page                               |                               Login Page                               |
-| :-------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img src="docs/images/screenshot.png" title="Home Page" width="100%"> | <img src="docs/images/screenshot.png" title="Login Page" width="100%"> |
-
-</details>
+This is the fax-app development environment. Everything is setup to be able to develop on all of the repos for fax-app. It includes npm, poetry, and flutter all setup and preconfigured.
 
 ### Built With
 
-> **[?]**
-> add built with here
+Built with docker.
 
 ## Getting Started
 
+Please follow the [guide](https://github.com/fax-app/notes/blob/main/docker-setup.md) in our notes repo to setup the environment.
+
 ### Prerequisites
 
-> **[?]**
-> What are the project requirements/dependencies?
+To develop for docker_env you just need to have docker installed in order to test the setup, for windows you should use wsl2 as a backend for docker.
 
 ### Installation
 
-> **[?]**
-> Describe how to install and get started with the project.
+All you need to do to get setup is to clone the repo and run the compose script to get up and running:
+```pwsh
+cd ~/scripts
+./compose.ps1
+```
 
 ## Usage
 
-> **[?]**
-> How does one go about using it?
-> Provide various use cases and code examples here.
+Use this docker container to develop code for fax-app and test it.
 
 ## Roadmap
 
@@ -105,7 +84,7 @@ See the [open issues](https://github.com/fax-app/docker_env/issues) for a list o
 
 Reach out to the maintainer at one of the following places:
 
-- [GitHub issues](https://github.com/fax-app/docker_env/issues/new?assignees=&labels=question&template=support_question.md&title=[QUESTION])
+- [GitHub issues](https://github.com/fax-app/docker_env/issues/new?labels=question&template=support.md&title=[SUPPORT])
 - Contact options listed on [this GitHub Organization](https://github.com/fax-app)
 
 ## Contributing
@@ -137,5 +116,11 @@ See [LICENSE](LICENSE) for more information.
 
 Thanks for these awesome resources that were used during the development of this project.
 
-> **[?]**
-> add acknowledgements here
+[docker](https://www.docker.com/)
+[debian docker image](https://hub.docker.com/_/debian)
+[pgadmin4 docker image](https://hub.docker.com/r/dpage/pgadmin4/)
+[postgres docker image](https://hub.docker.com/_/postgres)
+[oh-my-zsh](https://ohmyz.sh/)
+[poetry](https://python-poetry.org/)
+[npm](https://www.npmjs.com/)
+[flutter](https://flutter.dev/)
