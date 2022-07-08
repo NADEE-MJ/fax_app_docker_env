@@ -5,19 +5,7 @@ Please note we have a [code of conduct](CODE_OF_CONDUCT.md), please follow it in
 
 ## Development environment setup
 
-> **[?]**
-> Proceed to describe how to setup local development environment.
-> e.g:
-
-To set up a development environment, please follow these steps:
-
-1. Clone the repo
-
-   ```sh
-   git clone https://github.com/fax-app/docker_env
-   ```
-
-2. TODO
+To set up a development environment, please follow the steps in the [guide](https://github.com/fax-app/notes/blob/main/docker-setup.md) from the notes repo.
 
 ## Issues and feature requests
 
@@ -34,11 +22,4 @@ Please try to create bug reports that are:
 
 ### How to submit a Pull Request
 
-1. Search our repository for open or closed
-   [Pull Requests](https://github.com/fax-app/docker_env/pulls)
-   that relate to your submission. You don't want to duplicate effort.
-2. Fork the project
-3. Create your feature branch (`git checkout -b feat/amazing_feature`)
-4. Commit your changes (`git commit -m 'feat: add amazing_feature'`)
-5. Push to the branch (`git push origin feat/amazing_feature`)
-6. [Open a Pull Request](https://github.com/fax-app/docker_env/compare?expand=1)
+Please follow our [guide](https://github.com/fax-app/notes/blob/main/dev-process.md) in the notes repo.
