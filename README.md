@@ -5,7 +5,7 @@
 </h1>
 
 <div align="center">
-  <b><font size="+4">docker_env</font></b>
+  <b><font size="+20">docker_env</font></b>
   <br />
   <a href="https://github.com/fax-app/docker_env/issues/new?labels=bug&template=bug.md&title=[BUG]">Report a Bug</a>
   |
