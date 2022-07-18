@@ -21,7 +21,7 @@ USER $USERNAME
 #!###############################################################
 RUN sudo apt-get update -y
 RUN sudo apt-get upgrade -y
-RUN sudo apt-get install sudo python3.10 python3-venv zsh tig curl npm unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
+RUN sudo apt-get install sudo python3.10 pip python3-venv zsh tig curl npm unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
 
 #!###############################################################
 #!git setup
@@ -53,6 +53,7 @@ RUN git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CU
 #!###############################################################
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/home/dev/.local/bin:$PATH"
+RUN pip install black
 
 #!###############################################################
 #!AWS CLI setup
