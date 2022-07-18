@@ -55,6 +55,15 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/home/dev/.local/bin:$PATH"
 
 #!###############################################################
+#!AWS CLI setup
+#!###############################################################
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN sudo ./aws/install
+RUN rm -r aws
+RUN rm awscliv2.zip
+
+#!###############################################################
 #!fax repos setup
 #!###############################################################
 RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
