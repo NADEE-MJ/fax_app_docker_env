@@ -63,10 +63,11 @@ RUN rm ~/awscliv2.zip
 #!###############################################################
 #!fax repos setup
 #!###############################################################
+RUN git clone https://github.com/fax-app/fax-app.git ~/repos/fax_app
 RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
 RUN cp ~/repos/fax_server/.env.example ~/repos/fax_server/.env
+RUN sudo chmod u+x ~/repos/fax_server/bin/add-hooks.sh && ~/repos/fax_server/bin/add-hooks.sh
 RUN git clone https://github.com/fax-app/notes.git ~/repos/notes
-RUN git clone https://github.com/fax-app/fax-app.git ~/repos/fax_app
 RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker_env
 
 #!###############################################################
