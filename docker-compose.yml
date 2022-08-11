@@ -1,18 +1,15 @@
 # version: "0.1"
 services:
-
   fax_env:
     hostname: fax_env
     container_name: fax_env
     restart: unless-stopped
     tty: true
-    build:
-      context: .
-      dockerfile: fax_env.dockerfile
+    image: nadeemj51/fax_env
     volumes:
       - 'repoStorage:/home/dev/repos'
-    ports:
-      - "5000:80"
+    # ports:
+    #   - "5000:80"
 
 volumes:
   repoStorage:

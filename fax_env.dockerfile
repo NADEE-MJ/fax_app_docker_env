@@ -1,16 +1,23 @@
 FROM debian:bookworm
 
 #!###############################################################
+#!Update Packages
+#!###############################################################
+RUN apt-get update -y
+RUN apt-get upgrade -y
+
+#!###############################################################
 #!setup dev user
 #!###############################################################
+RUN apt-get install zsh -y
 ARG USERNAME=dev
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 # Create the user
 RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
+    && useradd -s /bin/zsh --uid $USER_UID --gid $USER_GID -m $USERNAME \
     && apt-get update \
-    && apt-get install -y sudo \
+    && apt-get install sudo -y \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 #set dev as default user
@@ -19,12 +26,12 @@ USER $USERNAME
 #!###############################################################
 #!install apps
 #!###############################################################
-RUN sudo apt-get update -y
-RUN sudo apt-get upgrade -y
-RUN sudo apt-get install sudo python3.10 python3-pip python3-venv zsh tig vim wget curl npm unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
+RUN sudo apt-get install nala -y
+RUN sudo nala install python3.10 python-is-python3 python3-pip python3-venv tig vim wget git curl unzip pkg-config clang cmake ninja-build libgtk-3-dev -y
+RUN sudo nala autoremove
 
 #!###############################################################
-#!git setup
+#!git config
 #!###############################################################
 RUN git config --global pull.rebase false
 
@@ -36,7 +43,6 @@ COPY /src/.vscode /home/dev/.vscode
 #!###############################################################
 #!zsh setup
 #!###############################################################
-RUN echo "zsh" >> ~/.bashrc
 RUN sh -c "$(curl -fsSL https://raw.github.com/NADEE-MJ/zsh/main/debian-zsh-install.sh)"
 
 #!###############################################################
@@ -44,7 +50,6 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/NADEE-MJ/zsh/main/debian-zsh-inst
 #!###############################################################
 RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/home/dev/.local/bin:$PATH"
-RUN pip install black
 
 #!###############################################################
 #!AWS CLI setup
@@ -59,6 +64,7 @@ RUN rm ~/awscliv2.zip
 #!fax repos setup
 #!###############################################################
 RUN git clone https://github.com/fax-app/fax_server.git ~/repos/fax_server
+RUN cp ~/repos/fax_server/.env.example ~/repos/fax_server/.env
 RUN git clone https://github.com/fax-app/notes.git ~/repos/notes
 RUN git clone https://github.com/fax-app/fax-app.git ~/repos/fax_app
 RUN git clone https://github.com/fax-app/docker_env.git ~/repos/docker_env
@@ -72,9 +78,3 @@ ENV PATH="$PATH:/home/dev/tools/flutter/bin"
 RUN flutter precache
 RUN flutter config --no-analytics
 RUN cd ~/repos/fax_app && flutter packages get
-
-#!###############################################################
-#!npm setup
-#!###############################################################
-RUN cd ~/repos/fax_server && npm install
-RUN cd ~/repos/fax_server && npm run prep
